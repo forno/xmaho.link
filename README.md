@@ -1,17 +1,29 @@
-# The FORNO portfolio
-The sources of my portfolio.
+# Nuxt 3 Minimal Starter
 
-publish on https://forno.github.io
+We recommend to look at the [documentation](https://v3.nuxtjs.org).
 
-## How to develop
+## Setup
+
+Make sure to install the dependencies
 
 ```bash
-git clone https://github.com/forno/forno.github.io.git
-cd forno.github.io
-docker-compose up
+yarn install
 ```
 
-You see it on http://localhost:3000
+## Development
 
-## LICENSE
-This software is released under the MIT License, see LICENSE.
+Start the development server on http://localhost:3000
+
+```bash
+yarn dev
+```
+
+## Production
+
+Build the application for production:
+
+```bash
+yarn build
+```
+
+Checkout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment).
