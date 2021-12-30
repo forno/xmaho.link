@@ -4,7 +4,7 @@
 <template lang="pug">
 .header
   .home-menu.pure-menu.pure-menu-horizontal.pure-menu-fixed
-    a(class="pure-menu-heading" href="/") FORNO's Portfolio
+    a.pure-menu-heading(href="/") The FORNO
     ul.pure-menu-list
       li.pure-menu-item.pure-menu-selected
         a.pure-menu-link(href="#") Home
@@ -17,18 +17,36 @@
 .splash-container
   .splash
     h1.splash-head
-      span.inlineblock "FORNO"ことフォルノ
-      span.inlineblock 通称ふぉるにゃーです
+      div
+        span.inlineblock "FORNO"
+        span.inlineblock こと
+        span.inlineblock フォルノ
+      div 通称 ふぉるにゃー
     .splash-subhead
-      | Webサービスの
       .pure-g
-        .splash-point.pure-u-1-4 設計
-        .splash-point.pure-u-1-4 開発
-        .splash-point.pure-u-1-4 運用
-        .splash-point.pure-u-1-4 管理
-      | をフルスタックに行うマルチエンジニアです
+        .pure-u-1-2
+          .splash-target-point
+            span Web
+        .pure-u-1-2
+          .splash-target-point
+            span VR
+      span(style="font-size: 200%;") X
+      .pure-g
+        .pure-u-1-2.pure-u-lg-1-4
+          .splash-technique-point
+            span 設計
+        .pure-u-1-2.pure-u-lg-1-4
+          .splash-technique-point
+            span 開発
+        .pure-u-1-2.pure-u-lg-1-4
+          .splash-technique-point
+            span 運用
+        .pure-u-1-2.pure-u-lg-1-4
+          .splash-technique-point
+            span 管理
+      | マルチ フルスタック エンジニア
     p
-      a.pure-button.pure-button-primary(href="/about") FORNOの情報
+      a.pure-button.pure-button-primary(href="/about") 詳細を知る
 .content-wrapper
   .content
     h2.content-head.is-center The content
@@ -184,12 +202,11 @@ a.pure-button-primary {
 .splash {
   /* absolute center .splash within .splash-container */
   width: 80%;
-  height: 50%;
+  height: 75%;
   margin: auto;
   position: absolute;
-  top: 100px; left: 0; bottom: 0; right: 0;
+  top: 0px; left: 0; bottom: 0; right: 0;
   text-align: center;
-  text-transform: uppercase;
 }
 
 /* This is the main heading that appears on the blue section */
@@ -209,6 +226,44 @@ a.pure-button-primary {
   color: white;
   letter-spacing: 0.05em;
   opacity: 0.8;
+}
+
+.splash-target-point {
+  margin: 0.2em;
+  height: 3em;
+  background: white;
+  border-radius: 10px;
+  color: darkgreen;
+  font-size: 120%;
+  font-weight: bold;
+  position: relative;
+}
+
+.splash-target-point span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.splash-technique-point {
+  margin: 0.2em;
+  height: 3em;
+  background: white;
+  border-radius: 10px;
+  color: darkgreen;
+  font-size: 120%;
+  font-weight: bold;
+  position: relative;
+}
+
+.splash-technique-point span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 /*
@@ -295,7 +350,7 @@ a.pure-button-primary {
   to work with */
   .splash {
     width: 50%;
-    height: 50%;
+    height: 65%;
   }
 
   .splash-head {
@@ -308,17 +363,5 @@ a.pure-button-primary {
     border: none;
   }
 
-}
-
-/*
- * -- DESKTOP (AND UP) MEDIA QUERIES --
- * On desktops and other large devices, we want to over-ride some
- * of the mobile and tablet styles.
- */
-@media (min-width: 78em) {
-  /* We increase the header font size even more */
-  .splash-head {
-    font-size: 300%;
-  }
 }
 </style>
