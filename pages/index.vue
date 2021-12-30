@@ -4,16 +4,16 @@
 <template lang="pug">
 .header
   .home-menu.pure-menu.pure-menu-horizontal.pure-menu-fixed
-    a.pure-menu-heading(href="/") The FORNO
+    NuxtLink.pure-menu-heading(to="#") The FORNO
     ul.pure-menu-list
       li.pure-menu-item.pure-menu-selected
-        a.pure-menu-link(href="#") Home
+        NuxtLink.pure-menu-link(to="#") Home
       li.pure-menu-item
-        a.pure-menu-link(href="/about") About
+        NuxtLink.pure-menu-link(to="/about") About
       li.pure-menu-item
-        a.pure-menu-link(href="/contents") Contents
+        NuxtLink.pure-menu-link(to="/contents") Contents
       li.pure-menu-item
-        a.pure-menu-link(href="/contact") Contact
+        NuxtLink.pure-menu-link(to="/contact") Contact
 .splash-container
   .splash
     h1.splash-head
@@ -46,10 +46,37 @@
             span 管理
       | マルチ フルスタック エンジニア
     p
-      a.pure-button.pure-button-primary(href="/about") 詳細を知る
+      NuxtLink.pure-button.pure-button-primary(to="/about") 詳細を知る
 .content-wrapper
   .content
-    h2.content-head.is-center The content
+    h2.content-head.is-center Services
+    .pure-g
+      .l-box.pure-u-1.pure-u-md-1-2.pure-u-lg-1-4
+        h3.content-subhead
+          i.fas.fa-mobile-button
+          | Webフロント
+        p Webのフロント部分をVue, React, PureJSのどれでも開発
+        p 引き渡し後のお客様の継続的な開発を見据えた選択可能
+      .l-box.pure-u-1.pure-u-md-1-2.pure-u-lg-1-4
+        h3.content-subhead
+          i.fas.fa-server
+          | Webサーバーサイド
+        p Nodejs, Rust, Go, PHP, PHP, Ruby, Python等の幅広い言語をサポート
+        p 幅広い選択肢から問題解決に最も適した方法を提供します
+      .l-box.pure-u-1.pure-u-md-1-2.pure-u-lg-1-4
+        h3.content-subhead
+          i.fas.fa-vr-cardboard
+          | VRコンテンツ
+        p VR空間向けの機能やコンテンツ制作を行っています
+        p 特にVRChat向けのシステムに強いです
+      .l-box.pure-u-1.pure-u-md-1-2.pure-u-lg-1-4
+        h3.content-subhead
+          i.fas.fa-comments
+          | 課題解決
+        p あらゆる知識を活かして、お客様の実現したいことを形にします
+        p まずはお気軽にお問い合わせください
+    .is-center
+      NuxtLink.pure-button(to="/contact") お問い合わせはこちら
 </template>
 
 <style scoped>
@@ -287,13 +314,14 @@ a.pure-button-primary {
 
 /* We want to give the content area some more padding */
 .content {
+  margin: auto;
+  max-width: 1024px;
   padding: 1em 1em 3em;
 }
 
 /* This is the class used for the main content headers (<h2>) */
 .content-head {
   font-weight: 400;
-  text-transform: uppercase;
   letter-spacing: 0.1em;
   margin: 2em 0 1em;
 }
@@ -366,6 +394,5 @@ a.pure-button-primary {
   .l-box-lrg {
     border: none;
   }
-
 }
 </style>

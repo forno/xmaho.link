@@ -2,9 +2,10 @@
 Html(lang="ja")
   Head
     Title FORNO's Portfolio
-    Link(rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous")
-    Link(rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css")
-    Meta(name="viewport" content="width=device-width, initial-scale=1")
+    Link(rel="stylesheet", href="https://unpkg.com/purecss@2.0.6/build/pure-min.css", integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5", crossorigin="anonymous")
+    Link(rel="stylesheet", href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css")
+    Meta(name="viewport", content="width=device-width, initial-scale=1")
+    Link(rel="stylesheet", href="https://use.fontawesome.com/releases/v6.0.0-beta3/css/all.css")
   Body
     NuxtPage
 </template>
