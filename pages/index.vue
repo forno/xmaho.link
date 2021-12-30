@@ -188,7 +188,9 @@ a.pure-button-primary {
  */
 
 .splash-container {
-  background: #1f8dd6;
+  background:
+    center / contain no-repeat url("/FORNO_avatar.png"),
+    #1f8dd6;
   z-index: 1;
   overflow: hidden;
   /* The following styles are required for the "scroll-over" effect */
@@ -203,6 +205,7 @@ a.pure-button-primary {
   /* absolute center .splash within .splash-container */
   width: 80%;
   height: 75%;
+  background: #0008;
   margin: auto;
   position: absolute;
   top: 0px; left: 0; bottom: 0; right: 0;
@@ -211,6 +214,8 @@ a.pure-button-primary {
 
 /* This is the main heading that appears on the blue section */
 .splash-head {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
   font-size: 20px;
   font-weight: bold;
   color: white;
