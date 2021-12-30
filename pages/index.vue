@@ -189,7 +189,7 @@ a.pure-button-primary {
 
 .splash-container {
   background:
-    center / contain no-repeat url("/FORNO_avatar.png"),
+    center / cover no-repeat url("/FORNO_avatar.png"),
     #1f8dd6;
   z-index: 1;
   overflow: hidden;
@@ -204,11 +204,11 @@ a.pure-button-primary {
 .splash {
   /* absolute center .splash within .splash-container */
   width: 80%;
-  height: 75%;
+  height: 90%;
   background: #0008;
   margin: auto;
   position: absolute;
-  top: 0px; left: 0; bottom: 0; right: 0;
+  top: 100px; left: 0; bottom: 0; right: 0;
   text-align: center;
 }
 
@@ -355,7 +355,6 @@ a.pure-button-primary {
   to work with */
   .splash {
     width: 50%;
-    height: 65%;
   }
 
   .splash-head {
