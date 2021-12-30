@@ -1,6 +1,6 @@
 <script setup lang="ts">
 </script>
 
-<template>
-  it me
+<template lang="pug">
+.container it me
 </template>
