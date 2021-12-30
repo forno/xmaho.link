@@ -216,6 +216,10 @@ a.pure-button-primary {
 
 .splash-container {
   background:
+    linear-gradient(
+      rgba(0,0,130,0.8),
+      rgba(0,130,0,0.8)
+    ),
     center / cover no-repeat url("/FORNO_avatar.png"),
     #1f8dd6;
   z-index: 1;
@@ -232,7 +236,6 @@ a.pure-button-primary {
   /* absolute center .splash within .splash-container */
   width: 80%;
   height: 90%;
-  background: #0008;
   margin: auto;
   position: absolute;
   top: 100px; left: 0; bottom: 0; right: 0;
