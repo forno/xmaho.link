@@ -24,12 +24,15 @@
       div 通称 ふぉるにゃー
     .splash-subhead
       .pure-g
-        .pure-u-1-2
+        .pure-u-1-3
           .splash-target-point
             span Web
-        .pure-u-1-2
+        .pure-u-1-3
           .splash-target-point
             span VR
+        .pure-u-1-3
+          .splash-target-point
+            span Robot
       span(style="font-size: 200%;") X
       .pure-g
         .pure-u-1-2.pure-u-lg-1-4
