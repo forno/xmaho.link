@@ -2,18 +2,18 @@
 </script>
 
 <template lang="pug">
-.header
+header
   .home-menu.pure-menu.pure-menu-horizontal.pure-menu-fixed
     NuxtLink.pure-menu-heading(to="/") The FORNO
     ul.pure-menu-list
       li.pure-menu-item.pure-menu-selected
         NuxtLink.pure-menu-link(to="/") Home
-      li.pure-menu-item
-        NuxtLink.pure-menu-link(to="/about") About
-      li.pure-menu-item
-        NuxtLink.pure-menu-link(to="/contents") Contents
-      li.pure-menu-item
-        NuxtLink.pure-menu-link(to="/contact") Contact
+//-      li.pure-menu-item
+//-        NuxtLink.pure-menu-link(to="/about") About
+//-      li.pure-menu-item
+//-        NuxtLink.pure-menu-link(to="/contents") Contents
+//-      li.pure-menu-item
+//-        NuxtLink.pure-menu-link(to="/contact") Contact
 .splash-container
   .splash
     h1.splash-head
@@ -49,8 +49,8 @@
             span 管理
       | マルチ フルスタック エンジニア
     p
-      NuxtLink.pure-button.pure-button-primary(to="/about") 詳細を知る
-.content-wrapper
+      a.pure-button.pure-button-primary(href="#content-top") 詳細を知る
+#content-top.content-wrapper
   .content
     h2.content-head.is-center Services
     .pure-g
@@ -79,7 +79,25 @@
         p あらゆる知識を活かして、お客様の実現したいことを形にします
         p まずはお気軽にお問い合わせください
     .is-center
-      NuxtLink.pure-button(to="/contact") お問い合わせはこちら
+      a.pure-button(href="mailto:forno@xmaho.link")
+        i.fas.fa-envelope
+        | メールでお問い合わせ
+  .ribbon.l-box-lrg.pure-g
+    .l-box-lrg.is-center.pure-u-1.pure-u-md-1-2.pure-u-lg-2-5
+      img.pure-img-responsive(src="/FORNO_avatar.png", alt="FORNO avatar", width="300")
+    .pure-u-1.pure-u-md-1-2.pure-u-lg-3-5
+      h2.content-head.content-head-ribbon x.maho Laboratory
+      p FORNOが自信を持って提供するブランド
+      h3.content-subhead 目的
+      p 先進的かつ汎用的な技術を独自にまとめ、再利用性を高めています
+      h3.content-subhead メリット
+      p 統一的な操作、直感的な挙動、簡潔な説明をもった基礎があります
+      p その上にお客様に必要なシステムを構築、発展させられます
+  .content
+    .content-head.is-center Links
+    .pure-g.is-center
+      .l-box-lrg.pure-u-1
+        a(href="https://vnos.info") VNOS
 </template>
 
 <style scoped>
