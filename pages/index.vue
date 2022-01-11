@@ -18,10 +18,9 @@ header
   .splash
     h1.splash-head
       div
-        span.inlineblock "FORNO"
+        span.inlineblock FORNO
         span.inlineblock こと
-        span.inlineblock フォルノ
-      div 通称 ふぉるにゃー
+        span.inlineblock "フォルノ"
     .splash-subhead
       .pure-g
         .pure-u-1-3
@@ -286,7 +285,7 @@ a.pure-button-primary {
 
 .splash-target-point {
   margin: 0.2em;
-  height: 3em;
+  height: 2.5em;
   background: white;
   border-radius: 10px;
   color: darkgreen;
@@ -305,7 +304,7 @@ a.pure-button-primary {
 
 .splash-technique-point {
   margin: 0.2em;
-  height: 3em;
+  height: 2.5em;
   background: white;
   border-radius: 10px;
   color: darkgreen;
