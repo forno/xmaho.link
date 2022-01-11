@@ -87,16 +87,35 @@ header
     .pure-u-1.pure-u-md-1-2.pure-u-lg-3-5
       h2.content-head.content-head-ribbon x.maho Laboratory
       p FORNOが自信を持って提供するブランド
-      h3.content-subhead 目的
-      p 先進的かつ汎用的な技術を独自にまとめ、再利用性を高めています
-      h3.content-subhead メリット
-      p 統一的な操作、直感的な挙動、簡潔な説明をもった基礎があります
-      p その上にお客様に必要なシステムを構築、発展させられます
+      h3.content-subhead 先進技術を惜しみなく活用
+      h3.content-subhead 理論に基づく体験
+      h3.content-subhead x.maho(エクマホ)の名を冠する
   .content
-    .content-head.is-center Links
-    .pure-g.is-center
-      .l-box-lrg.pure-u-1
-        a(href="https://vnos.info") VNOS
+    h2.content-head.is-center Contents
+    .pure-g
+      .l-box.pure-u-1.pure-u-md-1-2
+        h3.content-subhead
+          i.fas.fa-vr-cardboard
+          i.fas.fa-video
+          | Record VRC with GeForce Experience
+        p VR空間内からワンタッチで録画
+        iframe(src="https://www.youtube.com/embed/X1NDChUcO9s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+      .l-box.pure-u-1.pure-u-md-1-2
+        h3.content-subhead
+          i.fas.fa-vr-cardboard
+          i.fas.fa-dove
+          | Drone Movement with Dynamic Bone
+        p VRChat向けの追従させる機能
+        iframe(src="https://www.youtube.com/embed/tUbzazgr8p8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+    .is-center
+      a.pure-button(href="https://forno.booth.pm")
+        i.fas.fa-shop
+        | 販売ページはこちら
+  .ribbon.l-box-lrg.pure-g
+    .l-box-lrg.is-center.pure-u-1
+      h2.content-head.content-head-ribbon Links
+      a(href="https://vnos.info")
+        img.pure-img-responsive(src="/vnos_logo.svg", alt="VNOS Logo", width="200")
 </template>
 
 <style scoped>
