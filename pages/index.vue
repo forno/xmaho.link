@@ -4,7 +4,7 @@
 <template lang="pug">
 header
   .home-menu.pure-menu.pure-menu-horizontal.pure-menu-fixed
-    NuxtLink.pure-menu-heading(to="/") The FORNO
+    NuxtLink.pure-menu-heading(to="/") FORNO Portfolio
     ul.pure-menu-list
       li.pure-menu-item.pure-menu-selected
         NuxtLink.pure-menu-link(to="/") Home
