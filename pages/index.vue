@@ -90,6 +90,8 @@ header
       h3.content-subhead 先進技術を惜しみなく活用
       h3.content-subhead 理論に基づく体験
       h3.content-subhead x.maho(エクマホ)の名を冠する
+      h2.content-head
+        a(href="https://forno.booth.pm").text-white Boothにて商品販売中
   .content
     h2.content-head.is-center Contents
     .pure-g
@@ -105,7 +107,7 @@ header
           i.fas.fa-vr-cardboard
           i.fas.fa-dove
           | Drone Movement with Dynamic Bone
-        p VRChat向けの追従させる機能
+        p VRChat向けの追従機能
         iframe(src="https://www.youtube.com/embed/tUbzazgr8p8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
     .is-center
       a.pure-button(href="https://forno.booth.pm")
@@ -393,6 +395,10 @@ a.pure-button-primary {
   position: fixed;
   bottom: 0;
   width: 100%;
+}
+
+.text-white {
+  color: white;
 }
 
 /*
