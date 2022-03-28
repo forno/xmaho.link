@@ -261,7 +261,7 @@ a.pure-button-primary {
       rgba(0,0,130,0.8),
       rgba(0,130,0,0.8)
     ),
-    center / cover no-repeat url("/FORNO_avatar.png"),
+    center / cover no-repeat url("@/public/FORNO_avatar.png"),
     #1f8dd6;
   z-index: 1;
   overflow: hidden;
