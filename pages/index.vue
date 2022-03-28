@@ -83,7 +83,7 @@ header
         | メールでお問い合わせ
   .ribbon.l-box-lrg.pure-g
     .l-box-lrg.is-center.pure-u-1.pure-u-md-1-2.pure-u-lg-2-5
-      img.pure-img-responsive(src="/FORNO_avatar.png", alt="FORNO avatar", width="300")
+      img.pure-img-responsive(src="@/public/FORNO_avatar.png", alt="FORNO avatar", width="300")
     .pure-u-1.pure-u-md-1-2.pure-u-lg-3-5
       h2.content-head.content-head-ribbon x.maho Laboratory
       p FORNOが自信を持って提供するブランド
@@ -117,7 +117,7 @@ header
     .l-box-lrg.is-center.pure-u-1
       h2.content-head.content-head-ribbon Links
       a(href="https://vnos.info")
-        img.pure-img-responsive(src="/vnos_logo.svg", alt="VNOS Logo", width="200")
+        img.pure-img-responsive(src="@/public/vnos_logo.svg", alt="VNOS Logo", width="200")
 </template>
 
 <style scoped>
