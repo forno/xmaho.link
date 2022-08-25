@@ -28,8 +28,8 @@ onMounted(() => {
   const bgMaterial = new ShaderMaterial({
     vertexShader: ShaderLib.background.vertexShader,
     fragmentShader: /* glsl */ `
-uniform vec2      iResolution;           // viewport resolution (in pixels)
-uniform float     iTime;                 // shader playback time (in seconds)
+uniform vec2 iResolution; // viewport resolution (in pixels)
+uniform float iTime; // shader playback time (in seconds)
 
 varying vec2 vUv;
 
