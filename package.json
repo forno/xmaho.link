@@ -6,11 +6,11 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview"
   },
-  "dependencies": {
-    "pug": "latest",
-    "vue-router": "latest"
-  },
   "devDependencies": {
-    "nuxt": "3.0.0-rc.1"
+    "nuxt": "3.0.0-rc.8",
+    "pug": "^3.0.2"
+  },
+  "dependencies": {
+    "gl-matrix": "^3.4.3"
   }
 }
