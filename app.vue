@@ -21,9 +21,10 @@ onMounted(() => {
     1000
   );
 
-  const renderer = new WebGLRenderer();
+  const renderer = new WebGLRenderer({
+    canvas: globalThis.document.getElementById('background-canvas'),
+  });
   renderer.setSize(globalThis.innerWidth, globalThis.innerHeight);
-  globalThis.document.body.appendChild(renderer.domElement);
 
   const bgMaterial = new ShaderMaterial({
     vertexShader: ShaderLib.background.vertexShader,
@@ -56,8 +57,8 @@ void main () {
   scene.add(bgMesh);
 
   const clock = new Clock();
-  function animate() {
-    requestAnimationFrame(animate);
+  const animate = () => {
+    globalThis.requestAnimationFrame(animate);
 
     bgMaterial.uniforms.iTime.value = clock.getElapsedTime();
     bgMaterial.uniforms.iResolution.value = new Vector2(
@@ -65,17 +66,33 @@ void main () {
       globalThis.innerHeight
     );
     renderer.render(scene, camera);
-  }
+  };
 
   animate();
 });
 </script>
 
 <template lang="pug">
+div#top
+  canvas#background-canvas
+  div neko
 </template>
 
 <style lang="postcss">
 body {
   margin: 0;
+}
+#top {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#background-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+div {
+  color: white;
 }
 </style>
