@@ -7,10 +7,11 @@
     "preview": "nuxt preview"
   },
   "devDependencies": {
+    "@types/three": "^0.143.1",
     "nuxt": "3.0.0-rc.8",
     "pug": "^3.0.2"
   },
   "dependencies": {
-    "gl-matrix": "^3.4.3"
+    "three": "^0.143.0"
   }
 }
