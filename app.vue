@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import {
-  Clock,
   Mesh,
   PerspectiveCamera,
   PlaneGeometry,
@@ -44,13 +43,12 @@ void main () {
     ...ShaderLib.background.uniforms,
     iTime: { value: 0 },
     iResolution: new Uniform(
-      new Vector2(globalThis.innerWidth / 2, globalThis.innerHeight / 2)
+      new Vector2(globalThis.innerWidth, globalThis.innerHeight)
     ),
   },
 });
 const bgMesh = new Mesh(new PlaneGeometry(2, 2), bgMaterial);
 scene.add(bgMesh);
-const clock = new Clock();
 let animationId = $ref(null);
 
 onMounted(() => {
@@ -58,6 +56,8 @@ onMounted(() => {
     const renderer = new WebGLRenderer({
       canvas: globalThis.document.getElementById('background-canvas'),
     });
+    renderer.setPixelRatio(globalThis.devicePixelRatio);
+    renderer.setSize(globalThis.innerWidth / 2, globalThis.innerHeight / 2);
 
     const animate = (elapsedTime: number) => {
       animationId = globalThis.requestAnimationFrame(animate);
@@ -79,4 +79,12 @@ div#top
   div neko
 </template>
 
-<style lang="postcss"></style>
+<style lang="postcss">
+body {
+  margin: 0;
+}
+#background-canvas {
+  width: 100%;
+  height: 100%;
+}
+</style>
