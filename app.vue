@@ -68,6 +68,9 @@ onMounted(() => {
     animationId = globalThis.requestAnimationFrame(animate);
   }
 });
+onUnmounted(() => {
+  globalThis.cancelAnimationFrame(animationId);
+});
 </script>
 
 <template lang="pug">
