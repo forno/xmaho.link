@@ -55,9 +55,10 @@ onMounted(() => {
   if (animationId == null) {
     const renderer = new WebGLRenderer({
       canvas: globalThis.document.getElementById('background-canvas'),
+      alpha: true,
     });
     renderer.setPixelRatio(globalThis.devicePixelRatio);
-    renderer.setSize(globalThis.innerWidth / 2, globalThis.innerHeight / 2);
+    renderer.setSize(globalThis.innerWidth, globalThis.innerHeight);
 
     const animate = (elapsedTime: number) => {
       animationId = globalThis.requestAnimationFrame(animate);
@@ -76,7 +77,7 @@ onUnmounted(() => {
 <template lang="pug">
 div#top
   canvas#background-canvas
-  div neko
+  div#on-canvas neko
 </template>
 
 <style lang="postcss">
@@ -84,7 +85,17 @@ body {
   margin: 0;
 }
 #background-canvas {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#on-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  color: white;
 }
 </style>
