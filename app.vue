@@ -12,23 +12,16 @@ import {
   WebGLRenderer,
 } from 'three';
 
-onMounted(() => {
-  const scene = new Scene();
-  const camera = new PerspectiveCamera(
-    75,
-    globalThis.innerWidth / globalThis.innerHeight,
-    0.1,
-    1000
-  );
-
-  const renderer = new WebGLRenderer({
-    canvas: globalThis.document.getElementById('background-canvas'),
-  });
-  renderer.setSize(globalThis.innerWidth, globalThis.innerHeight);
-
-  const bgMaterial = new ShaderMaterial({
-    vertexShader: ShaderLib.background.vertexShader,
-    fragmentShader: /* glsl */ `
+const scene = new Scene();
+const camera = new PerspectiveCamera(
+  75,
+  globalThis.innerWidth / globalThis.innerHeight,
+  0.1,
+  1000
+);
+const bgMaterial = new ShaderMaterial({
+  vertexShader: ShaderLib.background.vertexShader,
+  fragmentShader: /* glsl */ `
 uniform vec2 iResolution; // viewport resolution (in pixels)
 uniform float iTime; // shader playback time (in seconds)
 
@@ -47,27 +40,34 @@ void main () {
   }
 }
 `,
-    uniforms: {
-      ...ShaderLib.background.uniforms,
-      iTime: { value: 0 },
-      iResolution: new Uniform(
-        new Vector2(globalThis.innerWidth, globalThis.innerHeight)
-      ),
-    },
-  });
-  const bgMesh = new Mesh(new PlaneGeometry(2, 2), bgMaterial);
-  scene.add(bgMesh);
+  uniforms: {
+    ...ShaderLib.background.uniforms,
+    iTime: { value: 0 },
+    iResolution: new Uniform(
+      new Vector2(globalThis.innerWidth / 2, globalThis.innerHeight / 2)
+    ),
+  },
+});
+const bgMesh = new Mesh(new PlaneGeometry(2, 2), bgMaterial);
+scene.add(bgMesh);
+const clock = new Clock();
+let initalized = $ref(false);
 
-  const clock = new Clock();
-  const animate = () => {
-    globalThis.requestAnimationFrame(animate);
+onMounted(() => {
+  if (!initalized) {
+    const renderer = new WebGLRenderer({
+      canvas: globalThis.document.getElementById('background-canvas'),
+    });
 
-    bgMaterial.uniforms.iTime.value = clock.getElapsedTime();
+    const animate = () => {
+      globalThis.requestAnimationFrame(animate);
+      bgMaterial.uniforms.iTime.value = clock.getElapsedTime();
+      renderer.render(scene, camera);
+    };
 
-    renderer.render(scene, camera);
-  };
-
-  animate();
+    initalized = true;
+    animate();
+  }
 });
 </script>
 
@@ -77,21 +77,4 @@ div#top
   div neko
 </template>
 
-<style lang="postcss">
-body {
-  margin: 0;
-}
-#top {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-#background-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-div {
-  color: white;
-}
-</style>
+<style lang="postcss"></style>
