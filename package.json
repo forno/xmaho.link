@@ -7,11 +7,11 @@
     "preview": "nuxt preview"
   },
   "devDependencies": {
-    "@types/three": "^0.143.1",
+    "@types/three": "^0.144.0",
     "nuxt": "3.0.0-rc.8",
     "pug": "^3.0.2"
   },
   "dependencies": {
-    "three": "^0.143.0"
+    "three": "^0.144.0"
   }
 }
