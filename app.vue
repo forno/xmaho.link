@@ -51,22 +51,21 @@ void main () {
 const bgMesh = new Mesh(new PlaneGeometry(2, 2), bgMaterial);
 scene.add(bgMesh);
 const clock = new Clock();
-let initalized = $ref(false);
+let animationId = $ref(null);
 
 onMounted(() => {
-  if (!initalized) {
+  if (animationId == null) {
     const renderer = new WebGLRenderer({
       canvas: globalThis.document.getElementById('background-canvas'),
     });
 
-    const animate = () => {
-      globalThis.requestAnimationFrame(animate);
-      bgMaterial.uniforms.iTime.value = clock.getElapsedTime();
+    const animate = (elapsedTime: number) => {
+      animationId = globalThis.requestAnimationFrame(animate);
+      bgMaterial.uniforms.iTime.value = elapsedTime / 1000;
       renderer.render(scene, camera);
     };
 
-    initalized = true;
-    animate();
+    animationId = globalThis.requestAnimationFrame(animate);
   }
 });
 </script>
