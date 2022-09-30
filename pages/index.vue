@@ -7,8 +7,8 @@ header
     ul.pure-menu-list
       li.pure-menu-item.pure-menu-selected
         NuxtLink.pure-menu-link(to="/") Home
-//-      li.pure-menu-item
-//-        NuxtLink.pure-menu-link(to="/about") About
+      li.pure-menu-item
+        NuxtLink.pure-menu-link(to="/webgl") Webgl Test
 //-      li.pure-menu-item
 //-        NuxtLink.pure-menu-link(to="/contents") Contents
 //-      li.pure-menu-item
