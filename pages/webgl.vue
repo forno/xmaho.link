@@ -77,17 +77,16 @@ onUnmounted(() => {
 
 <template lang="pug">
 div
+  div#top
+    canvas#background-canvas(ref="canvasElement")
   header
     .home-menu.pure-menu.pure-menu-horizontal.pure-menu-fixed
       NuxtLink.pure-menu-heading(to="/") FORNO Portfolio
       ul.pure-menu-list
-        li.pure-menu-item.pure-menu-selected
-          NuxtLink.pure-menu-link(to="/") Home
         li.pure-menu-item
+          NuxtLink.pure-menu-link(to="/") Home
+        li.pure-menu-item.pure-menu-selected
           NuxtLink.pure-menu-link(to="/webgl") Webgl Test
-  div#top
-    canvas#background-canvas(ref="canvasElement")
-    div#on-canvas neko
 </template>
 
 <style lang="postcss">
