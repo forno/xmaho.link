@@ -170,7 +170,7 @@ a.pure-button-primary {
 
 .splash-container {
   background: linear-gradient(rgba(0, 0, 130, 0.8), rgba(0, 130, 0, 0.8)),
-    center / cover no-repeat url('@/public/FORNO_avatar.png'), #1f8dd6;
+    center / cover no-repeat url('@/assets/FORNO_avatar.png'), #1f8dd6;
   z-index: 1;
   overflow: hidden;
   /* The following styles are required for the "scroll-over" effect */
