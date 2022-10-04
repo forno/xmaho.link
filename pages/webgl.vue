@@ -50,11 +50,12 @@ void main () {
 const bgMesh = new Mesh(new PlaneGeometry(2, 2), bgMaterial);
 scene.add(bgMesh);
 let animationId = $ref(null);
+const canvasElement = $ref(null);
 
 onMounted(() => {
   if (animationId == null) {
     const renderer = new WebGLRenderer({
-      canvas: globalThis.document.getElementById('background-canvas'),
+      canvas: canvasElement,
       alpha: true,
     });
     renderer.setPixelRatio(globalThis.devicePixelRatio);
@@ -75,9 +76,18 @@ onUnmounted(() => {
 </script>
 
 <template lang="pug">
-div#top
-  canvas#background-canvas
-  div#on-canvas neko
+div
+  header
+    .home-menu.pure-menu.pure-menu-horizontal.pure-menu-fixed
+      NuxtLink.pure-menu-heading(to="/") FORNO Portfolio
+      ul.pure-menu-list
+        li.pure-menu-item.pure-menu-selected
+          NuxtLink.pure-menu-link(to="/") Home
+        li.pure-menu-item
+          NuxtLink.pure-menu-link(to="/webgl") Webgl Test
+  div#top
+    canvas#background-canvas(ref="canvasElement")
+    div#on-canvas neko
 </template>
 
 <style lang="postcss">
