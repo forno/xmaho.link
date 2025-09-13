@@ -30,8 +30,9 @@ useHead({
 });
 </script>
 
-<template lang="pug">
-NuxtPage
+<template>
+  <NuxtPage />
+  
 </template>
 
 <style>

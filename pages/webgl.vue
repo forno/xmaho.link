@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { ref, onMounted, onUnmounted } from 'vue';
 import {
   Mesh,
   PerspectiveCamera,
@@ -49,44 +50,53 @@ void main () {
 });
 const bgMesh = new Mesh(new PlaneGeometry(2, 2), bgMaterial);
 scene.add(bgMesh);
-let animationId = $ref(null);
-const canvasElement = $ref(null);
+const animationId = ref<number | null>(null);
+const canvasElement = ref<HTMLCanvasElement | null>(null);
 
 onMounted(() => {
-  if (animationId == null) {
+  if (animationId.value == null) {
     const renderer = new WebGLRenderer({
-      canvas: canvasElement,
+      canvas: canvasElement.value as HTMLCanvasElement,
       alpha: true,
     });
     renderer.setPixelRatio(globalThis.devicePixelRatio);
     renderer.setSize(globalThis.innerWidth, globalThis.innerHeight);
 
     const animate = (elapsedTime: number) => {
-      animationId = globalThis.requestAnimationFrame(animate);
+      animationId.value = globalThis.requestAnimationFrame(animate);
       bgMaterial.uniforms.iTime.value = elapsedTime / 1000;
       renderer.render(scene, camera);
     };
 
-    animationId = globalThis.requestAnimationFrame(animate);
+    animationId.value = globalThis.requestAnimationFrame(animate);
   }
 });
 onUnmounted(() => {
-  globalThis.cancelAnimationFrame(animationId);
+  if (animationId.value != null) {
+    globalThis.cancelAnimationFrame(animationId.value);
+  }
 });
 </script>
 
-<template lang="pug">
-div
-  div#top
-    canvas#background-canvas(ref="canvasElement")
-  header
-    .home-menu.pure-menu.pure-menu-horizontal.pure-menu-fixed
-      NuxtLink.pure-menu-heading(to="/") FORNO Portfolio
-      ul.pure-menu-list
-        li.pure-menu-item
-          NuxtLink.pure-menu-link(to="/") Home
-        li.pure-menu-item.pure-menu-selected
-          NuxtLink.pure-menu-link(to="/webgl") Webgl Test
+<template>
+  <div>
+    <div id="top">
+      <canvas id="background-canvas" ref="canvasElement"></canvas>
+    </div>
+    <header>
+      <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+        <NuxtLink class="pure-menu-heading" to="/">FORNO Portfolio</NuxtLink>
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <NuxtLink class="pure-menu-link" to="/">Home</NuxtLink>
+          </li>
+          <li class="pure-menu-item pure-menu-selected">
+            <NuxtLink class="pure-menu-link" to="/webgl">Webgl Test</NuxtLink>
+          </li>
+        </ul>
+      </div>
+    </header>
+  </div>
 </template>
 
 <style lang="postcss">

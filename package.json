@@ -7,16 +7,13 @@
     "preview": "nuxt preview"
   },
   "devDependencies": {
-    "@types/three": "^0.144.0",
-    "@unocss/core": "^0.45.26",
-    "@unocss/nuxt": "^0.45.26",
-    "@vueuse/core": "^9.3.0",
-    "@vueuse/nuxt": "^9.3.0",
-    "nuxt": "3.0.0-rc.11",
-    "pug": "^3.0.2",
-    "unocss": "^0.45.26"
+    "@types/three": "^0.180.0",
+    "@unocss/core": "^66.5.1",
+    "@unocss/nuxt": "^66.5.1",
+    "nuxt": "^4.1.2",
+    "unocss": "^66.5.1"
   },
   "dependencies": {
-    "three": "^0.145.0"
+    "three": "^0.180.0"
   }
 }
