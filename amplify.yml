@@ -9,7 +9,7 @@ frontend:
       commands:
         - npm run generate
   artifacts:
-    baseDirectory: .amplify-hosting/static
+    baseDirectory: .output/public
     files:
       - '**/*'
   cache:
