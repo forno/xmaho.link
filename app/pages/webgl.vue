@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue'
 import {
   Mesh,
   PerspectiveCamera,
@@ -10,18 +10,23 @@ import {
   Uniform,
   Vector2,
   WebGLRenderer,
-} from 'three';
+} from 'three'
 
-const scene = new Scene();
-const camera = new PerspectiveCamera(
-  75,
-  globalThis.innerWidth / globalThis.innerHeight,
-  0.1,
-  1000
-);
-const bgMaterial = new ShaderMaterial({
-  vertexShader: ShaderLib.background.vertexShader,
-  fragmentShader: /* glsl */ `
+const animationId = ref<number | null>(null)
+const canvasElement = ref<HTMLCanvasElement | null>(null)
+
+onMounted(() => {
+  // All WebGL and window-dependent code must run on client only.
+  const scene = new Scene()
+  const camera = new PerspectiveCamera(
+    75,
+    globalThis.innerWidth / globalThis.innerHeight,
+    0.1,
+    1000
+  )
+  const bgMaterial = new ShaderMaterial({
+    vertexShader: ShaderLib.background.vertexShader,
+    fragmentShader: /* glsl */ `
 uniform vec2 iResolution; // viewport resolution (in pixels)
 uniform float iTime; // shader playback time (in seconds)
 
@@ -40,42 +45,39 @@ void main () {
   }
 }
 `,
-  uniforms: {
-    ...ShaderLib.background.uniforms,
-    iTime: { value: 0 },
-    iResolution: new Uniform(
-      new Vector2(globalThis.innerWidth, globalThis.innerHeight)
-    ),
-  },
-});
-const bgMesh = new Mesh(new PlaneGeometry(2, 2), bgMaterial);
-scene.add(bgMesh);
-const animationId = ref<number | null>(null);
-const canvasElement = ref<HTMLCanvasElement | null>(null);
+    uniforms: {
+      ...ShaderLib.background.uniforms,
+      iTime: { value: 0 },
+      iResolution: new Uniform(
+        new Vector2(globalThis.innerWidth, globalThis.innerHeight)
+      ),
+    },
+  })
+  const bgMesh = new Mesh(new PlaneGeometry(2, 2), bgMaterial)
+  scene.add(bgMesh)
 
-onMounted(() => {
   if (animationId.value == null) {
     const renderer = new WebGLRenderer({
       canvas: canvasElement.value as HTMLCanvasElement,
       alpha: true,
-    });
-    renderer.setPixelRatio(globalThis.devicePixelRatio);
-    renderer.setSize(globalThis.innerWidth, globalThis.innerHeight);
+    })
+    renderer.setPixelRatio(globalThis.devicePixelRatio)
+    renderer.setSize(globalThis.innerWidth, globalThis.innerHeight)
 
     const animate = (elapsedTime: number) => {
-      animationId.value = globalThis.requestAnimationFrame(animate);
-      bgMaterial.uniforms.iTime.value = elapsedTime / 1000;
-      renderer.render(scene, camera);
-    };
+      animationId.value = globalThis.requestAnimationFrame(animate)
+      bgMaterial.uniforms.iTime!.value = elapsedTime / 1000
+      renderer.render(scene, camera)
+    }
 
-    animationId.value = globalThis.requestAnimationFrame(animate);
+    animationId.value = globalThis.requestAnimationFrame(animate)
   }
-});
+})
 onUnmounted(() => {
   if (animationId.value != null) {
-    globalThis.cancelAnimationFrame(animationId.value);
+    globalThis.cancelAnimationFrame(animationId.value)
   }
-});
+})
 </script>
 
 <template>
