@@ -9,9 +9,9 @@ frontend:
         - pnpm install --frozen-lockfile
     build:
       commands:
-        - pnpm exec nuxt generate --preset static
+        - pnpm exec nuxi generate --preset static
   artifacts:
-    baseDirectory: .output/public
+    baseDirectory: dist
     files:
       - '**/*'
   cache:
