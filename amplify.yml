@@ -9,7 +9,7 @@ frontend:
         - pnpm install --frozen-lockfile
     build:
       commands:
-        - pnpm generate
+        - pnpm exec nuxt generate --preset static
   artifacts:
     baseDirectory: .output/public
     files:
@@ -17,3 +17,4 @@ frontend:
   cache:
     paths:
       - node_modules/**/*
+      - .nuxt/**/*
