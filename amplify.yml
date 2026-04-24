@@ -4,12 +4,14 @@ frontend:
     preBuild:
       commands:
         - node -v
-        - npm ci
+        - npm install -g pnpm
+        - pnpm -v
+        - pnpm install --frozen-lockfile
     build:
       commands:
-        - npm run build
+        - pnpm generate
   artifacts:
-    baseDirectory: .amplify-hosting
+    baseDirectory: .output/public
     files:
       - '**/*'
   cache:
